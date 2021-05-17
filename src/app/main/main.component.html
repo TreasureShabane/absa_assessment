@@ -1,0 +1,38 @@
+<div>
+    <header>
+        <h3>Acme Bank</h3>
+    </header>
+</div><br />
+<div class="container">
+    <div class="row">
+        <table style="width:100%">
+            <th *ngFor = "let column of headers">
+                {{column}}
+            </th>
+            <tr *ngFor = "let row of rows; let i = index">
+                <td>
+                    {{row.account_number}}
+                </td>
+                <td>
+                    {{row.account_type}}
+                </td>
+                <td>
+                    {{row.balance}}
+                </td>
+                <td>
+                    <button ejs-button cssClass="e-success" [disabled]="!rows[i].status" (click)="buttonClicked()">Withdraw</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Balance
+                </td>
+                <td></td>
+                <td>
+                    ZAR {{balance | number:'1.2-2' }}
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
